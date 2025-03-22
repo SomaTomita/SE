@@ -78,3 +78,72 @@ When applying SOLID principles to your projects:
 5. Depend on abstractions rather than concrete implementations
 
 These small improvements in design lead to significant long-term benefits in code maintainability, testability, and adaptability to changing requirements.
+
+## Practice Questions
+
+### Question 1
+
+What is the primary objective of the Single Responsibility Principle (SRP)?
+
+- [ ] To ensure that each class has multiple reasons to change
+- [ ] To enforce strict dependencies between all classes in a system
+- [ ] To allow a class to handle multiple functionalities to improve efficiency
+- [x] To limit a class to only one reason to change, improving maintainability
+
+**Explanation**: The Single Responsibility Principle states that a class should have only one reason to change. This means each class should have a single, well-defined responsibility, making the code more maintainable, easier to understand, and less prone to bugs when changes are needed.
+
+### Question 2
+
+Match each SOLID principle to its correct description:
+
+Single Responsibility Principle:
+
+- [x] A class should only have one reason to change
+
+Open/Closed Principle:
+
+- [x] Software entities should be open for extension but closed for modification
+
+Liskov Substitution Principle:
+
+- [x] A subclass should be replaceable for its parent class without affecting correctness
+
+Interface Segregation Principle:
+
+- [x] An interface should have only the methods relevant to the specific client that implements it
+
+Dependency Inversion Principle:
+
+- [x] High-level modules should not depend on low-level modules; both should depend on abstractions
+
+**Explanation**: Each SOLID principle addresses a specific aspect of software design:
+
+- SRP focuses on maintaining single responsibility
+- OCP enables extension without modification
+- LSP ensures proper inheritance behavior
+- ISP prevents interface pollution
+- DIP promotes loose coupling through abstractions
+
+### Question 3
+
+The Interface Segregation Principle states that large, general-purpose interfaces are preferable over smaller, more specific ones to ensure flexibility in software design.
+
+- [ ] True
+- [x] False
+
+**Explanation**: This statement is false. The Interface Segregation Principle (ISP) actually advocates for the opposite: interfaces should be small, specific, and focused on the needs of the clients that use them. Large, general-purpose interfaces often force clients to implement methods they don't need, creating unnecessary dependencies.
+
+### Question 4
+
+A developer is designing an online food delivery application. The PaymentProcessor class handles all payment transactions, including card payments, digital wallets, and cash-on-delivery validation. As the application scales, new payment methods must be added frequently. Which SOLID principle should be applied to make this system more maintainable?
+
+- [ ] Interface Segregation Principle – ensure that payment services implement only relevant methods
+- [x] Open/Closed Principle – create an abstraction for different payment types
+- [ ] Liskov Substitution Principle – ensure all payments inherit the same base behaviour
+- [ ] Single Responsibility Principle – separate concerns within the class
+
+**Explanation**: The Open/Closed Principle (OCP) is most applicable here because it allows for adding new payment methods without modifying existing code. By creating an abstract payment interface or base class, new payment methods can be added by creating new classes that implement this interface, rather than modifying the existing PaymentProcessor class.
+
+## Summary
+
+These practice questions help reinforce your understanding of SOLID principles and their practical applications in software design. Remember that while each principle has its specific focus, they work together to create more maintainable, flexible, and robust software systems.
