@@ -14,7 +14,7 @@ Imagine a food delivery app that must process thousands of orders per minute, tr
 
 ## 1. Layered Architecture
 
-[An example with meat and potatoes](https://qiita.com/c0ridrew/items/41f0566b676d8092a9fb)
+[An example of Layered Architecture with meat and potatoes](https://qiita.com/c0ridrew/items/41f0566b676d8092a9fb)
 
 ```
 food_delivery_app/
@@ -167,6 +167,8 @@ If the central server experiences a high number of requests during peak hours (l
 - **Auto-scaling**: Automatically adding server capacity during peak hours
 
 ## 3. Event-Driven Architecture
+
+[An example of Event-Driven Architecture with Uber eats](https://www.creationline.com/tech-blog/microservices/event-driven/63887)
 
 ```
 food_delivery_app_event_driven/
@@ -487,6 +489,113 @@ A microservices architecture would be particularly advantageous for internationa
 - Gradual rollout to new markets without affecting existing operations
 - Compliance with varying regulatory requirements through specialized service variants
 
+## SOA vs Microservices: A Detailed Comparison
+
+### Overview
+
+Service-Oriented Architecture (SOA) is typically used in large-scale enterprise systems (e.g., banking operations, inventory management, ERP) where integration and reusability are priorities. In contrast, Microservices architecture is preferred for modern web applications (e.g., Netflix, Amazon, Uber) requiring rapid development, scalability, and distribution.
+
+### Key Architectural Differences
+
+| Aspect             | SOA                                                      | Microservices                                      |
+| ------------------ | -------------------------------------------------------- | -------------------------------------------------- |
+| Architecture Style | Centralized (ESB-centric)                                | Distributed (Independent services)                 |
+| Communication      | Heavy message protocols (XML/SOAP)                       | Lightweight (JSON, REST, gRPC)                     |
+| Scaling            | Monolithic scaling or ESB bottleneck                     | Independent service scaling                        |
+| Data Management    | Shared databases (easier management but tightly coupled) | Independent databases per service (loose coupling) |
+| Best Use Case      | Enterprise systems with legacy integration               | Web apps requiring high-frequency delivery         |
+| Service Size       | Larger, business-function oriented                       | Small, focused on single capability                |
+| Deployment         | Application-level deployment                             | Independent service deployment                     |
+
+### Infrastructure Comparison on AWS
+
+| Component             | SOA Infrastructure                               | Microservices Infrastructure                            |
+| --------------------- | ------------------------------------------------ | ------------------------------------------------------- |
+| API Management        | API Gateway + ESB (MuleSoft/Apache Camel on EC2) | API Gateway + Lambda/ECS/EKS                            |
+| Service Communication | Via ESB                                          | Direct via REST/gRPC or messaging (SNS/SQS/Kafka)       |
+| Database              | Shared RDS instances                             | Independent databases (RDS/DynamoDB/Aurora) per service |
+| Deployment Unit       | Application-level deployment                     | Individual service deployment (ECS/Lambda/EKS)          |
+| Monitoring/Tracing    | CloudWatch + X-Ray + centralized monitoring      | Distributed tracing (X-Ray, OpenTelemetry)              |
+| Scaling               | ESB bottleneck, whole-system scaling             | Independent auto-scaling per service                    |
+| Messaging             | Amazon MQ, integrated with ESB                   | Kafka/MSK, SNS/SQS, EventBridge per service             |
+
+### Key Architectural Patterns
+
+#### SOA Pattern
+
+- Centralized ESB handles service integration
+- Services communicate through standardized protocols
+- Shared data stores and security policies
+
+```
+# SOA Pattern
+[Service A] ─┐
+[Service B] ─┤
+[Service C] ─┼─ [ESB] ─── [Shared Resources]
+[Service D] ─┤
+[Service E] ─┘
+```
+
+#### Microservices Pattern
+
+- Independent services with direct communication
+- Each service has its own database
+- No centralized ESB
+
+```
+# Microservices Pattern
+[Service A] ←→ [DB-A]
+    ↕
+[Service B] ←→ [DB-B]
+    ↕
+[Service C] ←→ [DB-C]
+```
+
+### Impact on Development and Operations
+
+The choice between SOA and Microservices significantly affects how teams work and how systems are operated:
+
+| Aspect                 | SOA                          | Microservices                  |
+| ---------------------- | ---------------------------- | ------------------------------ |
+| Development Speed      | Slower due to coordination   | Faster independent development |
+| Team Structure         | Centralized teams            | Autonomous teams               |
+| Release Cycle          | Longer, coordinated releases | Quick, independent releases    |
+| Operational Complexity | Moderate (centralized)       | High (distributed)             |
+| Service Discovery      | Via ESB                      | Dynamic service discovery      |
+| Fault Tolerance        | ESB single point of failure  | Isolated service failures      |
+
+#### Development Impact Analysis
+
+1. **Development Speed**
+
+   - SOA: Requires coordination across teams, slower development cycles
+   - Microservices: Teams can develop and deploy independently, faster iterations
+
+2. **Team Structure**
+
+   - SOA: Centralized teams with shared responsibilities
+   - Microservices: Small, autonomous teams owning specific services
+
+3. **Release Cycle**
+   - SOA: Coordinated releases requiring careful planning
+   - Microservices: Independent deployments with canary releases
+
+#### Operational Impact Analysis
+
+1. **Complexity Management**
+
+   - SOA: Centralized management through ESB
+   - Microservices: Distributed system complexity, requires sophisticated DevOps
+
+2. **Service Discovery**
+
+   - SOA: Managed through ESB registry
+   - Microservices: Dynamic service discovery (e.g., Kubernetes, Consul)
+
+3. **Fault Tolerance**
+   - SOA: ESB failures affect entire system
+   - Microservices: Isolated failures with circuit breakers
+
 ## Conclusion
 
 Architectural styles provide frameworks for organizing software systems, each with distinct advantages and limitations. Understanding these patterns helps software engineers make informed decisions that align with business goals and technical requirements.
@@ -495,6 +604,49 @@ The most successful systems often combine elements from multiple architectural s
 
 By considering factors such as scalability, maintainability, development velocity, and operational complexity, engineers can select architectural approaches that position their systems for long-term success.
 
-```
+# Practice Questions
 
-```
+### Question 1
+
+In a client-server architecture, the client processes requests and returns responses.
+
+**Answer**: False
+
+**Explanation**: In client-server architecture, it's actually the server that processes requests and returns responses. The client's role is to send requests to the server and handle the responses it receives. The client typically focuses on user interface and interaction, while the server handles data processing, business logic, and database operations.
+
+### Question 2
+
+Select all benefits associated with using layered architecture.
+
+**Answer**:
+
+- Enhanced modularity
+- Clear separation of concerns
+- Simplified debugging
+
+**Explanation**: These three options are genuine benefits of layered architecture. Enhanced modularity allows each layer to be developed and maintained independently. Clear separation of concerns helps organize code logically by function. Simplified debugging makes it easier to isolate issues to specific layers. "Immediate real-time responsiveness" is not a benefit of layered architecture; in fact, the multiple layers can introduce some latency to request processing.
+
+### Question 3
+
+Which of the following are potential trade-offs of using Service-Oriented Architecture (SOA)?
+
+**Answer**:
+
+- Increased complexity in managing service dependencies
+- Potential performance overhead from a centralised service bus
+
+**Explanation**: These are genuine trade-offs of SOA. Managing service dependencies becomes more complex as the number of services grows, and the centralized Enterprise Service Bus (ESB) can become a performance bottleneck. "Simplified communication between components" and "Enhanced ease of integrating external services" are actually benefits of SOA, not trade-offs.
+
+### Question 4
+
+Which architectural style is best suited for real-time applications, such as sending immediate notifications in a food delivery app?
+
+**Answer**: Event-Driven Architecture
+
+**Explanation**: Event-Driven Architecture is ideal for real-time applications because it:
+
+- Processes events as they occur in real-time
+- Enables immediate responses to system changes
+- Facilitates asynchronous communication
+- Is designed for handling streams of events and notifications
+  While other architectures can support real-time features, Event-Driven Architecture is specifically designed for scenarios requiring immediate response to events and real-time updates.
