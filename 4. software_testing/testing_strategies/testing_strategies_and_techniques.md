@@ -131,15 +131,17 @@ Example Application:
 
 ### Class Diagram
 
-```mermaid
-classDiagram
-    class User {
-        - username: str
-        - email: str
-        + is_email_valid(): bool
-        + send_welcome_email(): void
-    }
-```
+<pre>
++------------------------+
+| User |
++------------------------+
+| - username: str |
+| - email: str |
++------------------------+
+| + is_email_valid(): bool |
+| + send_welcome_email(): None |
++------------------------+
+</pre>
 
 ### Implementation Code
 
