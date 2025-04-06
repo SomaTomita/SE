@@ -116,16 +116,93 @@ Example Application:
 | Manual Testing    | Human verification, strong in usability and exploratory testing              |
 | Automated Testing | Script-based execution, suitable for regression testing and repetitive tasks |
 
-## Key Takeaways
+## Comprehensive Key Takeaways
 
-1. Test strategy provides overall direction, while techniques offer specific implementation methods
-2. Testing occurs at multiple levels (unit → acceptance) for gradual quality verification
-3. BVA and equivalence partitioning help efficient bug detection
-4. Use cases enable testing in realistic scenarios
-5. Proper combination of testing methods leads to:
-   - Improved reliability
-   - Higher user satisfaction
-   - Cost reduction
+### 1. Testing Strategy Provides a Consistent Organisational Framework
+
+- Outlines overarching approach to testing across projects
+- Includes test types, objectives, and risk assessments
+- Defines entry/exit criteria and automation decisions
+- Adapts to project size, complexity, and regulations
+- Ensures alignment with business goals and compliance requirements
+
+### 2. Testing Techniques Ensure Comprehensive Quality Assessment
+
+- Structured methods for evaluating all aspects of software
+- Selection based on development stage and testing level
+- Combines multiple approaches:
+  - Boundary Value Analysis for edge cases
+  - Equivalence Partitioning for efficient coverage
+  - Use case-based testing for real-world scenarios
+- Critical for meeting user and technical requirements
+
+### 3. Test Automation Enhances Efficiency and Accuracy
+
+- Leverages tools like Selenium, Cypress, JUnit, PyUnit
+- Improves efficiency in:
+  - Test execution
+  - Defect detection
+  - Results reporting
+- Particularly valuable for:
+  - Large-scale applications
+  - Continuous integration environments
+  - Regression testing
+  - Repetitive tasks
+
+### 4. Best Practices in Automation Improve Test Reliability
+
+- Focus on high-impact, repetitive tasks
+- Integration with CI/CD pipelines
+- Balanced combination with manual testing
+- Emphasis on:
+  - Maintainable test scripts
+  - Edge case coverage
+  - Clear documentation
+  - Version control
+
+### 5. Modern Testing Trends are Shaping Industry Practice
+
+- Shift-Left Testing for early defect detection
+- AI-driven testing for improved accuracy
+- Codeless automation tools for accessibility
+- DevSecOps integration
+- Performance engineering focus
+- Microservices testing strategies
+
+### 6. The Future of Testing Emphasises Security, Performance, and Intelligence
+
+- Growing importance of:
+  - Security testing in DevSecOps
+  - Performance engineering
+  - AI-enhanced testing
+- Adaptation to:
+  - Cloud environments
+  - Microservices architecture
+  - IoT applications
+- Integration with:
+  - Agile methodologies
+  - DevOps practices
+  - Continuous delivery pipelines
+
+### 7. Practical Implementation Considerations
+
+- Test component interactions effectively
+- Verify system communication paths
+- Ensure data flow integrity
+- Optimize test design for:
+  - Efficiency
+  - Coverage
+  - Maintainability
+- Balance automated and manual testing approaches
+
+### 8. Strategic Success Factors
+
+- Align testing with business objectives
+- Prioritize based on risk assessment
+- Consider regulatory requirements
+- Maintain continuous improvement cycle
+- Foster collaboration between development and testing teams
+- Implement metrics-driven quality assessment
 
 # Practical Example: Unit Testing with Python
 
@@ -200,3 +277,91 @@ def test_send_welcome_email(capsys):
    - Tests the output functionality
    - Uses PyTest's capsys fixture to capture stdout
    - Example of behavior verification
+
+## Practice Questions and Answers
+
+### Question 1: Online Banking Security Testing
+
+**Question:**
+A financial company is developing an online banking system. To comply with industry regulations, they prioritise security testing to prevent fraud and data breaches. Which aspect of software testing does this scenario best illustrate?
+
+**Options:**
+
+- Testing Strategy
+- Exploratory Testing
+- Integration Testing
+- System Testing
+
+**Answer: Testing Strategy**
+
+**Explanation:**
+This scenario best illustrates a Testing Strategy because:
+
+- It involves a planned approach to testing that aligns with business objectives (regulatory compliance)
+- Prioritizes specific testing types (security) based on risk assessment
+- Focuses on critical aspects of the system (fraud prevention and data security)
+- Demonstrates strategic decision-making in test planning
+
+### Question 2: Inventory Management System Testing
+
+**Question:**
+A development team is testing a newly built web-based inventory management system. They decide to evaluate how different modules, such as product tracking and order processing, communicate with each other. Which type of testing is most relevant in this scenario?
+
+**Options:**
+
+- Unit Testing
+- Boundary Value Analysis
+- Integration Testing
+- User Acceptance Testing
+
+**Answer: Integration Testing**
+
+**Explanation:**
+Integration Testing is most appropriate because:
+
+- Tests interactions between different modules
+- Verifies communication between system components
+- Ensures data flow between product tracking and order processing
+- Focuses on interface testing between integrated components
+
+### Question 3: Login System Testing
+
+**Question:**
+A software tester is evaluating a new login system. They enter different combinations of usernames and passwords but do not examine the underlying code. What type of testing technique are they using?
+
+**Options:**
+
+- White-Box Testing
+- Regression Testing
+- Performance Testing
+- Black-Box Testing
+
+**Answer: Black-Box Testing**
+
+**Explanation:**
+This is Black-Box Testing because:
+
+- Tester focuses on inputs and outputs without knowledge of internal code
+- Testing is based on external behavior of the system
+
+### Question 4: E-commerce Age Validation Testing
+
+**Question:**
+A company is developing an e-commerce platform. The testers decide to classify age-related data into three categories: under 18 (invalid), between 18 and 65 (valid), and over 65 (invalid). They then test only one value from each category instead of every possible age. Which testing technique is being used?
+
+**Options:**
+
+- Boundary Value Analysis
+- Unit Testing
+- Equivalence Partitioning
+- Exploratory Testing
+
+**Answer: Equivalence Partitioning**
+
+**Explanation:**
+This is Equivalence Partitioning because:
+
+- Data is divided into distinct categories (partitions)
+- Each partition represents a class of equivalent inputs
+- Testing one value from each partition is considered sufficient
+- Reduces number of test cases while maintaining effectiveness
