@@ -353,3 +353,254 @@ The future of QA lies in:
 - Predictive analytics
 - Enhanced security measures
 - Integrated development practices
+
+## Question Set: Fundamental QA Concepts
+
+#### Question 1: QA Principles
+
+**Question:**
+Which principle of QA emphasises early identification and prevention of errors rather than later correction?
+
+**Options:**
+
+- Regression testing
+- Prevention over correction
+- Post-release verification
+- Continuous integration
+
+**Answer: Prevention over correction**
+
+**Detailed Explanation:**
+Prevention over correction is a fundamental QA principle that emphasizes:
+
+1. **Early Detection Benefits**
+
+   ```text
+   Cost of Fix Comparison:
+   Requirements Phase: 1x
+   Design Phase: 5x
+   Development Phase: 10x
+   Testing Phase: 20x
+   Production Phase: 50x
+   ```
+
+2. **Implementation Methods**
+
+   ```python
+   class PreventiveQA:
+       def early_prevention_activities(self):
+           activities = {
+               "requirements_review": {
+                   "timing": "pre-development",
+                   "focus": "clarity_and_completeness",
+                   "participants": ["analysts", "developers", "qa"]
+               },
+               "design_review": {
+                   "timing": "pre-coding",
+                   "focus": "architecture_quality",
+                   "participants": ["architects", "senior_devs", "qa"]
+               },
+               "code_standards": {
+                   "timing": "during_development",
+                   "focus": "code_quality",
+                   "tools": ["linters", "static_analyzers"]
+               }
+           }
+           return activities
+   ```
+
+3. **Key Advantages:**
+   - Reduced development costs
+   - Shorter project timelines
+   - Higher quality deliverables
+   - Improved team efficiency
+   - Better resource utilization
+
+#### Question 2: Software Validation
+
+**Question:**
+Which of the following best defines 'validation' in the context of software quality assurance?
+
+**Options:**
+
+- Checking whether the software is bug-free
+- Ensuring the software meets coding standards
+- Confirming the software has passed unit testing
+- Ensuring the software meets user needs and expectations
+
+**Answer: Ensuring the software meets user needs and expectations**
+
+**Detailed Explanation:**
+Validation is a critical QA concept that focuses on building the right product:
+
+1. **Verification vs. Validation**
+
+   ```yaml
+   verification:
+     focus: "Building the product right"
+     activities:
+       - Code reviews
+       - Unit testing
+       - Integration testing
+       - Compliance checking
+
+   validation:
+     focus: "Building the right product"
+     activities:
+       - User acceptance testing
+       - Beta testing
+       - Usability testing
+       - Requirements validation
+   ```
+
+2. **Validation Methods:**
+
+   - User Acceptance Testing (UAT)
+   - Prototype Reviews
+   - Beta Testing
+   - Customer Feedback
+   - Production Monitoring
+
+3. **Success Criteria:**
+   ```python
+   class ValidationCriteria:
+       def assess_validation(self):
+           criteria = {
+               "user_satisfaction": self.measure_user_feedback(),
+               "business_value": self.assess_business_goals(),
+               "market_fit": self.evaluate_market_needs(),
+               "performance": self.check_real_world_performance()
+           }
+           return self.evaluate_criteria(criteria)
+   ```
+
+#### Question 3: ISO/IEC 25010
+
+**Question:**
+What does ISO/IEC 25010 primarily provide in the context of software quality assurance?
+
+**Options:**
+
+- A software development lifecycle model
+- A structured quality model for evaluating software characteristics
+- A set of cybersecurity requirements for government software
+- Guidelines for software deployment procedures
+
+**Answer: A structured quality model for evaluating software characteristics**
+
+**Detailed Explanation:**
+ISO/IEC 25010 is a comprehensive framework that:
+
+1. **Quality Characteristics Hierarchy**
+
+   ```text
+   Software Quality
+   ├── Functional Suitability
+   │   ├── Functional Completeness
+   │   ├── Functional Correctness
+   │   └── Functional Appropriateness
+   ├── Performance Efficiency
+   │   ├── Time Behavior
+   │   ├── Resource Utilization
+   │   └── Capacity
+   └── [Other characteristics...]
+   ```
+
+2. **Practical Application:**
+
+   ```python
+   class QualityAssessment:
+       def evaluate_quality(self, software_component):
+           characteristics = {
+               "functional": self.assess_functionality(),
+               "performance": self.measure_performance(),
+               "usability": self.evaluate_user_experience(),
+               "security": self.assess_security_measures(),
+               "maintainability": self.evaluate_maintenance_ease()
+           }
+           return self.calculate_quality_score(characteristics)
+   ```
+
+3. **Benefits of Using ISO 25010:**
+   - Standardized evaluation criteria
+   - Comprehensive quality coverage
+   - Industry-wide acceptance
+   - Measurable quality attributes
+   - Systematic assessment approach
+
+#### Question 4: Defect Density
+
+**Question:**
+What is 'defect density' as a software quality metric?
+
+**Options:**
+
+- The percentage of code covered by test cases
+- The ratio of defects found in testing to those found in production
+- The average time taken to fix each defect
+- The number of defects identified per unit of code
+
+**Answer: The number of defects identified per unit of code**
+
+**Detailed Explanation:**
+Defect density is a crucial metric that helps evaluate software quality:
+
+1. **Calculation Method**
+
+   ```python
+   class DefectDensityCalculator:
+       def calculate_density(self, defects, code_size):
+           """
+           Calculate defect density
+           :param defects: Number of defects
+           :param code_size: Size in KLOC (thousands of lines of code)
+           :return: Defects per KLOC
+           """
+           return defects / code_size
+
+       def interpret_density(self, density):
+           benchmarks = {
+               "excellent": 0.5,  # Less than 0.5 defects per KLOC
+               "good": 1.0,      # Less than 1.0 defects per KLOC
+               "average": 2.0,   # Less than 2.0 defects per KLOC
+               "poor": float('inf')  # More than 2.0 defects per KLOC
+           }
+           return self.get_quality_level(density, benchmarks)
+   ```
+
+2. **Usage in Quality Management:**
+
+   - Project quality tracking
+   - Process improvement measurement
+   - Team performance evaluation
+   - Release readiness assessment
+   - Comparative analysis between releases
+
+3. **Contextual Considerations:**
+
+   ```yaml
+   factors_affecting_density:
+     code_complexity:
+       - Function points
+       - Cyclomatic complexity
+       - Dependencies
+
+     development_phase:
+       - Requirements
+       - Design
+       - Implementation
+       - Testing
+
+     defect_categories:
+       - Critical
+       - Major
+       - Minor
+       - Cosmetic
+   ```
+
+4. **Best Practices for Using Defect Density:**
+   - Regular measurement and tracking
+   - Context-aware interpretation
+   - Trend analysis over time
+   - Comparison with industry standards
+   - Integration with other metrics
