@@ -193,3 +193,222 @@ A distributed system is a collection of independent computers (nodes) that appea
 ## Conclusion
 
 Distributed systems are fundamental to modern software architecture, enabling scalable and resilient applications. Understanding these concepts is crucial for designing robust systems that can handle the demands of today's digital world.
+
+## Practice Questions and Detailed Solutions
+
+### Question 1: Data Consistency in Distributed Systems
+
+**Question:** One of the biggest challenges in distributed systems is \***\*\_\*\***, which ensures that all nodes have a consistent view of shared data.
+
+**Options:**
+
+- Load balancing
+- Latency management
+- Network redundancy
+- Data consistency
+
+**Correct Answer:** Data consistency
+
+**Detailed Explanation:**
+Data consistency is indeed one of the most challenging aspects of distributed systems. Here's why:
+
+1. **Why it's challenging:**
+
+   - Multiple nodes can modify data simultaneously
+   - Network delays can cause updates to arrive in different orders at different nodes
+   - Node failures can lead to partial updates
+
+2. **Technical Implementation:**
+
+   ```python
+   # Example of implementing consistency in a distributed key-value store
+   class DistributedStore:
+       def write(self, key, value, version):
+           # Ensure all replicas agree before commit
+           if self.get_consensus(key, value, version):
+               self.commit(key, value)
+           else:
+               raise ConsistencyError("Failed to achieve consensus")
+   ```
+
+3. **Real-world Example:**
+
+   - In a distributed banking system, when a customer transfers money:
+     - Account A must be debited
+     - Account B must be credited
+     - Both operations must succeed or fail together (atomic transaction)
+     - All nodes must see the same final balance
+
+4. **Related Concepts:**
+   - CAP Theorem (Consistency, Availability, Partition Tolerance)
+   - Eventual Consistency
+   - Strong Consistency
+   - Consensus Algorithms (Paxos, Raft)
+
+### Question 2: Architecture Selection for Video Streaming
+
+**Question:** An online video streaming platform needs to serve content to millions of users worldwide while ensuring smooth performance and reducing the risk of downtime. Which distributed system architecture would be the most suitable choice?
+
+**Options:**
+
+- A peer-to-peer network where users stream videos directly from each other
+- A microservices-based architecture where streaming, authentication, and recommendations are separate services
+- A client-server model with load-balanced servers distributing the content globally
+- A single centralised database storing all content
+
+**Correct Answer:** A microservices-based architecture where streaming, authentication, and recommendations are separate services
+
+**Detailed Explanation:**
+
+1. **Why Microservices is the Best Choice:**
+
+   - **Scalability:** Each service can scale independently based on demand
+   - **Resilience:** Failure in one service (e.g., recommendations) doesn't affect others (e.g., streaming)
+   - **Development Agility:** Teams can work independently on different services
+   - **Technology Flexibility:** Each service can use the most appropriate technology stack
+
+2. **Technical Implementation Example:**
+
+   ```yaml
+   # Docker Compose configuration for streaming platform
+   version: "3"
+   services:
+     streaming-service:
+       image: streaming-service
+       deploy:
+         replicas: 5
+         resources:
+           limits:
+             cpus: "0.5"
+             memory: 1G
+
+     auth-service:
+       image: auth-service
+       deploy:
+         replicas: 3
+
+     recommendation-service:
+       image: recommendation-service
+       deploy:
+         replicas: 2
+   ```
+
+3. **Analysis of Other Options:**
+
+   - **Peer-to-peer:**
+     - Pros: Cost-effective, naturally scales with users
+     - Cons: Quality inconsistent, complex rights management
+   - **Client-server with load balancing:**
+     - Pros: Simpler to implement
+     - Cons: Less flexible, harder to scale individual components
+   - **Single centralized database:**
+     - Pros: Simplest to implement
+     - Cons: Single point of failure, poor scalability
+
+4. **Real-world Example:**
+   - Netflix's architecture:
+     - Content delivery through CDN
+     - Separate services for user profiles
+     - Independent recommendation engine
+     - Dedicated authentication service
+
+### Question 3: Fault Tolerance
+
+**Question:** A distributed system can continue operating even if some of its components fail.
+
+**Options:**
+
+- True
+- False
+
+**Correct Answer:** True
+
+**Detailed Explanation:**
+
+1. **Key Concepts:**
+
+   ```python
+   # Example of fault-tolerant service implementation
+   class FaultTolerantService:
+       def __init__(self):
+           self.replicas = []
+           self.minimum_replicas = 3
+
+       def execute_operation(self, operation):
+           available_replicas = [r for r in self.replicas if r.is_healthy()]
+           if len(available_replicas) >= self.minimum_replicas:
+               return self.perform_with_consensus(available_replicas, operation)
+           else:
+               raise QuorumNotAvailableError()
+   ```
+
+2. **Implementation Strategies:**
+
+   - Redundancy
+   - Replication
+   - Failover mechanisms
+   - Health monitoring
+
+3. **Real-world Examples:**
+
+   - Amazon S3's 99.999999999% durability guarantee
+   - Google's globally distributed databases
+   - Kubernetes' self-healing mechanisms
+
+4. **Technical Considerations:**
+   - CAP theorem trade-offs
+   - Consistency requirements
+   - Recovery mechanisms
+   - Monitoring and alerting
+
+### Question 4: Distributed System Definition
+
+**Question:** Which of the following best defines a distributed system?
+
+**Options:**
+
+- A centralised system that distributes tasks to local machines without coordination
+- A network of computers where each operates independently without communication
+- A system where all processes run on a single machine
+- A system where multiple independent computers work together as a unified service
+
+**Correct Answer:** A system where multiple independent computers work together as a unified service
+
+**Detailed Explanation:**
+
+1. **Key Components of the Definition:**
+
+   - Multiple independent computers (nodes)
+   - Coordination and communication between nodes
+   - Appears as a unified service to end-users
+   - Shared state and resources
+
+2. **Technical Implementation Example:**
+
+   ```python
+   # Example of a distributed system component
+   class DistributedNode:
+       def __init__(self, node_id):
+           self.node_id = node_id
+           self.cluster_members = set()
+           self.shared_state = {}
+
+       def join_cluster(self, coordinator_address):
+           # Register with cluster
+           self.register_with_coordinator(coordinator_address)
+           # Sync state
+           self.sync_shared_state()
+           # Start heartbeat
+           self.start_heartbeat()
+   ```
+
+3. **Why Other Options are Incorrect:**
+
+   - Centralized system: Lacks true distribution of responsibility
+   - Independent computers: Lacks coordination and unified service
+   - Single machine: Not distributed by definition
+
+4. **Real-world Examples:**
+   - Distributed databases (Cassandra, MongoDB)
+   - Container orchestration (Kubernetes)
+   - Distributed file systems (HDFS)
