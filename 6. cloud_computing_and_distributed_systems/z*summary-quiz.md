@@ -206,6 +206,126 @@
    - Pay-as-you-go model
    - Global infrastructure availability
 
+### Cloud Deployment Concerns
+
+### 1. Latency Issues
+
+**What is it?**
+
+- Network delay between user requests and system responses
+- Time taken for data to travel between different cloud services
+
+**Why it's a concern:**
+
+```python
+# Example of latency impact
+async def process_user_request():
+    start_time = time.now()
+
+    # Multiple network calls can compound latency
+    user_data = await fetch_user_data()        # ~100ms
+    payment_info = await process_payment()      # ~200ms
+    notification = await send_notification()    # ~150ms
+
+    total_latency = time.now() - start_time    # Could be 450ms+ total
+```
+
+**Common causes:**
+
+- Geographic distance between users and data centers
+- Network congestion
+- Multiple service hops in microservices architecture
+- Database query performance
+
+**Mitigation strategies:**
+
+- Use of CDNs (Content Delivery Networks)
+- Strategic data center location selection
+- Caching mechanisms
+- Edge computing deployment
+
+### 2. Vendor Lock-in
+
+**What is it?**
+
+- Dependency on specific cloud provider's services
+- Difficulty in moving to different providers
+
+**Example scenario:**
+
+```python
+# Heavy use of vendor-specific services
+from aws_specific import DynamoDB, Lambda, SQS
+
+class UserService:
+    def __init__(self):
+        self.db = DynamoDB()        # AWS-specific database
+        self.queue = SQS()          # AWS-specific messaging
+        self.function = Lambda()     # AWS-specific serverless
+```
+
+**Why it's a concern:**
+
+- Cost of migration becomes prohibitive
+- Limited negotiating power with provider
+- Risk of provider service changes
+- Dependency on provider's technology roadmap
+
+**Mitigation strategies:**
+
+- Use of container technologies (Docker, Kubernetes)
+- Implementation of abstraction layers
+- Use of cloud-agnostic architectures
+- Regular evaluation of portable alternatives
+
+### 3. Data Security Risks (データセキュリティリスク)
+
+**What is it?**
+
+- Threats to data confidentiality, integrity, and availability
+- Compliance and regulatory challenges
+
+**Security concerns example:**
+
+```python
+class CloudDataSecurity:
+    def security_checklist(self):
+        return {
+            'data_encryption': {
+                'in_transit': 'TLS/SSL',
+                'at_rest': 'AES-256'
+            },
+            'access_control': {
+                'authentication': 'Multi-factor',
+                'authorization': 'Role-based'
+            },
+            'compliance': {
+                'gdpr': self.check_gdpr_compliance(),
+                'hipaa': self.check_hipaa_compliance()
+            },
+            'monitoring': {
+                'intrusion_detection': True,
+                'audit_logs': True
+            }
+        }
+```
+
+**Key security challenges:**
+
+- Data breaches
+- Unauthorized access
+- Data privacy regulations
+- Shared infrastructure risks
+- Insider threats
+
+**Mitigation strategies:**
+
+- End-to-end encryption
+- Regular security audits
+- Access control and authentication
+- Compliance monitoring
+- Security training and awareness
+
 ## Question 6: Blockchain Architecture
 
 **Question:** Which distributed system model is best suited for decentralised applications like blockchain?
