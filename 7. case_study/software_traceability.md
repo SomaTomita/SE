@@ -13,6 +13,7 @@ Traceability is sustained through a lightweight, living chain of artefacts. The 
 Yet the discipline is not free. Capturing links, updating ADRs, and policing coverage typically adds five-to-ten percent effort per sprint. That overhead is justified in regulated domains, multi-vendor programmes, or products expected to live for a decade, because it slashes audit time and accelerates onboarding. Conversely, in a two-week proof-of-concept the same rigour can throttle discovery speed; here a simple decision log and disposable test harness may suffice until requirements stabilise.
 
 When traceability is weak or missing, silent non-compliance, hidden rework, and brittle change follow. A refactor of the cache-eviction policy, if detached from REQ-042, might push response time beyond three seconds and trigger regulatory penalties before anyone notices. By contrast, explicit links shrink impact-analysis time, enable confident change, and let every engineer walk any significant line of code back to the original "why."
+
 (299 words)
 
 ## Analysis of the Answer

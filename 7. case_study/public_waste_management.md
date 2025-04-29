@@ -19,6 +19,7 @@ Scenario-based "pressure-tests" follow: facilitators present provocative what-if
 Finally, an online suggestion board and quarterly pop-up kiosks ensure continuous, low-barrier feedback once deployment begins; their known drawback—signal-to-noise ratio—is mitigated through sentiment-analysis dashboards that highlight recurring issues for rapid triage.
 
 The sequence is intentionally layered: observation uncovers behaviour, interviews expose rationales, co-design translates insights into artefacts, scenarios stress-test commitments, and continuous channels capture emergent needs. By explicitly pairing each technique with a compensating method and safeguard, the approach delivers a more complete, credible, and politically resilient requirements set within the council's limit.
+
 (281 words)
 
 ## Analysis of the Answer

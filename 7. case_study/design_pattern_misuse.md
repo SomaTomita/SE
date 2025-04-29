@@ -15,6 +15,7 @@ A more robust solution would be to implement dependency injection and use a prop
 This redesign promotes loose coupling, improves testability, and makes the system more maintainable. Components would explicitly declare their dependencies, making the code more transparent and easier to understand. The state changes become traceable through the state management system's built-in tools, allowing developers to debug issues more effectively and maintain a cleaner architecture that scales better with the application's growth.
 
 The misuse often happens because developers prioritize quick implementation over architectural soundness, especially under time pressure. To avoid such pitfalls in the future, teams should conduct lightweight design reviews to assess dependency management and educate developers on the risks of global state, reinforcing good practices across projects.
+
 (299 words)
 
 ## Analysis of the Answer
