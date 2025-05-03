@@ -18,6 +18,6 @@ JAD sessions utilize rapid prototyping and UI sketches to make abstract discussi
 
 (150 words)
 
-## Marking Criteria
+### Marking Criteria
 
 (6 marks: 1 mark per correctly identified technique, 1 mark for each correct explanation)

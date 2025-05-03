@@ -1,8 +1,19 @@
 # The Software Development Lifecycle (SDLC)
 
-The Software Development Lifecycle (SDLC) is a process that helps teams create high-quality software. Each phase of the SDLC produces important outputs called deliverables. These deliverables help teams move from one stage to the next in an organized way.
+The Software Development Lifecycle (SDLC) is a structured, phase-driven framework for producing high-quality software efficiently. Each phase of the SDLC produces important outputs called deliverables. These deliverables help teams move from one stage to the next in an organized way while keeping all stakeholders aligned.
 
 ## Key Deliverables in the SDLC
+
+### Planning & Project Management Documents
+
+These documents establish the foundation for the project before development begins:
+
+- Project Charter (defining vision, business case, and success criteria)
+- Work Breakdown Structure (WBS) and project schedule
+- Risk Register (identifying and tracking potential threats)
+- Budget and resource allocation plans
+
+These documents help ensure the project starts with clear direction and proper controls.
 
 ### Requirement Documents
 
@@ -30,6 +41,8 @@ These are the actual software products created during development:
 
 - Source code: The written instructions in programming languages
 - Executables: The runnable programs that users can use
+- Container images and deployment artifacts
+- Documentation for code maintenance
 
 This is what developers create based on the requirements and design.
 
@@ -40,6 +53,9 @@ Test reports show if the software works correctly. They include:
 - Test cases (planned tests)
 - Bug reports (problems found)
 - Fix confirmations (solutions applied)
+- Automated test results
+- Integration test reports
+- Performance test metrics
 
 These reports help ensure the software works as expected before release.
 
@@ -60,12 +76,72 @@ Maintenance reports track changes made after release. They include:
 - Bug fixes
 - Security updates
 - New features added
+- System performance metrics
+- Uptime reports
+- Change logs
 
 These reports help teams keep track of how the software changes over time.
 
+### Security Artifacts
+
+Security is a crucial aspect throughout the SDLC. Key security deliverables include:
+
+- Threat models and risk assessments
+- Security requirements documentation
+- Static and dynamic analysis reports
+- Penetration testing results
+- Security patch logs
+- Compliance documentation
+
+## SDLC Process Models
+
+Different projects may follow different SDLC methodologies based on their needs:
+
+### Waterfall
+
+- Linear, sequential approach
+- Best for projects with stable, well-understood requirements
+- Each phase must complete before the next begins
+
+### Agile
+
+- Iterative and incremental development
+- Flexible response to changing requirements
+- Regular delivery of working software
+
+### Hybrid
+
+- Combines elements of Waterfall and Agile
+- Used when different parts of the project need different approaches
+- Balances structure with flexibility
+
+### Iterative
+
+- Repeated cycles of development
+- Each iteration improves the software
+- Good for projects with unclear requirements
+
+### Spiral
+
+- Risk-driven approach
+- Emphasis on risk analysis and mitigation
+- Suitable for large, complex projects
+
+### V-Model
+
+- Emphasis on verification and validation
+- Each development stage has a corresponding testing phase
+- Common in regulated industries
+
+### Prototype
+
+- Build working models before final development
+- Useful for clarifying requirements
+- Helps validate concepts early
+
 ## Summary
 
-The SDLC deliverables provide a clear path for software development. They help teams communicate better and stay organized. By creating good requirement documents, design documents, source code, test reports, deployment plans, and maintenance reports, teams can build better software that meets user needs.
+The SDLC deliverables provide a clear path for software development. They help teams communicate better and stay organized. By creating comprehensive documentation across all phases - from planning through maintenance - and choosing the right process model, teams can build better software that meets user needs while managing risks effectively.
 
 # Quiz Answers
 
